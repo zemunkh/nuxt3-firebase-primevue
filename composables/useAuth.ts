@@ -1,9 +1,6 @@
 import {
-  doc,
-  getDoc,
-  setDoc,
   Timestamp
-} from 'firebase/firestore/lite';
+} from 'firebase/firestore';
 
 import {
   getAuth,
@@ -18,7 +15,7 @@ import firebaseApp from './firebaseInit';
 import { useFirestore } from './useFirestore';
 export const useAuth = () => {
   const auth = getAuth(firebaseApp);
-  const { db } = useFirestore();
+  const { db, set, get } = useFirestore();
 
   const fbAuthStateListener = async (callback) => {
     onAuthStateChanged(auth, async () => {
@@ -44,10 +41,10 @@ export const useAuth = () => {
     phone
   ) => {
     const response = await createUserWithEmailAndPassword(auth, email, password);
-    console.log(response);
-    if (response) {
-      await fbSetUserProfile({email, firstname, lastname, phone });
-      const profile = await fbGetUserProfile();
+    if (response.user.uid) {
+      console.log('Ok 🚀: ', response);
+      await fbSetUserProfile(email, firstname, lastname, phone );
+      const profile = await get('users', response.user.uid);
       return {
         user: response.user,
         profile,
@@ -70,39 +67,18 @@ export const useAuth = () => {
     return true;
   };
 
-  const fbGetUserProfile = async () => {
+  const fbSetUserProfile = async (email, firstname, lastname, phone) => {
     const user = auth.currentUser;
-    const ref = doc(db, "users", user.uid);
-    const docSnap = await getDoc(ref);
-  
-    if (docSnap.exists()) {
-      return {
-        ...docSnap.data(),
-        uid: user.uid,
-      };
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!", user.uid);
-      return null;
+    console.log('USER 🖖🏼: ', user.uid);
+    const payload = {
+      email: email,
+      firstname: firstname,
+      lastname: lastname,
+      phone: phone,
+      userId: user.uid,
+      createdOn: Timestamp.fromDate(new Date()),
     }
-  };
-  const fbSetUserProfile = async ({email, firstname, lastname, phone}) => {
-    const user = auth.currentUser;
-    console.log(user);
-  
-    const ref = doc(db, "users", user.uid);
-    await setDoc(
-      ref,
-      {
-        email: email,
-        firstname: firstname,
-        lastname: lastname,
-        phone: phone,
-        userId: user.uid,
-        createdOn: Timestamp.fromDate(new Date())
-      },
-      { merge: true }
-    );
+    await set('users', user.uid, payload)    
     return true;
   };
 
@@ -114,7 +90,6 @@ export const useAuth = () => {
   return {
     fbSignIn,
     fbSignOut,
-    fbGetUserProfile,
     fbCreateAccount,
     fbAuthStateListener,
     fbResetPassword,

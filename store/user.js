@@ -16,14 +16,16 @@ export const useAuthStore = defineStore('authStore', {
   },
   actions: {
     async initializeAuthListener() {
-      const { fbAuthStateListener, fbGetUserProfile } = useAuth()
+      const { fbAuthStateListener } = useAuth()
+      const { get } = useFirestore()
+
       return new Promise((resolve) => {
         fbAuthStateListener( async (user) => {
           this.user = user ? user : null;
           console.log('User obj: ', this.user);
           if (user) {
-            // const profile = (await fbGetUserProfile());
-            // this.profile = profile;
+            const profile = await get('users', user.uid);
+            this.profile = profile;
             this.user = user
           }
           resolve(true);

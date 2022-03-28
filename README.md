@@ -8,7 +8,7 @@ Nuxt 3 Firebase starter with PrimeVue
 
 <p align="center">
 <br>
-<a href="https://yesmkt-demo.web.app/">🖥 Online Preview</a>
+<a href="https://nuxt3-zemunkh.web.app">🖥 Online Preview</a>
 <br><br>
 </p>
 

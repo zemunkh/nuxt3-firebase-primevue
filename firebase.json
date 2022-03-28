@@ -2,7 +2,7 @@
   "functions": { "source": ".output/server" },
   "hosting": [
     {
-      "site": "yesmkt-demo",
+      "site": "nuxt3-zemunkh",
       "public": ".output/public",
       "cleanUrls": true,
       "rewrites": [{ "source": "**", "function": "server" }]

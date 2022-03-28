@@ -36,7 +36,7 @@ export default function ({ $pinia, ssrContext }) {
 const getNick = req => {
   const originHost = `${(req.headers.referer || req.headers['x-forwarded-host'] || req.headers.host || null)}`
   const isLocal = originHost.indexOf('localhost') > 0 ? true : false
-  let nick = originHost.replace('https://', '').replace('http://', '').split('.')[0] || 'zemunkh@gmail.com'
-  if (nick.indexOf('localhost') > -1 || !nick || nick === 'null') nick = 'zemunkh@gmail.com'
+  let nick = originHost.replace('https://', '').replace('http://', '').split('.')[0] || 'zemunkh'
+  if (nick.indexOf('localhost') > -1 || !nick || nick === 'null') nick = 'zemunkh'
   return { nick, originHost, isLocal }
 }

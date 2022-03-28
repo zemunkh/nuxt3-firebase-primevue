@@ -41,7 +41,7 @@
     setup() {
       const store = useStore();
       useMeta({
-        title: `👉 ${store.nick === undefined ? 'Yes4mkt' : store.nick}`
+        title: `👉 ${store.nick === '' ? 'zemunkh' : store.nick}`
       })
       definePageMeta({
         middleware: ["auth"]

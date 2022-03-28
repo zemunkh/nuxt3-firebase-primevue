@@ -18,7 +18,6 @@
 
 
 <script setup>
-  import { useStore } from '~/store/store'
   import { useAuthStore } from '~/store/user'
   import Loader from '~/components/Tools/Loader'
   import ErrorMsg from "~/components/Tools/ErrorMsg";
@@ -28,7 +27,6 @@
   const authStore = useAuthStore();
   const { createAccount } = authStore;
   authStore.error = ''
-  const store = useStore();
 
   const isActive = ref(false)
 
@@ -42,8 +40,13 @@
 
   const signUpWithEmail = async () => {
     isActive.value = true
-    await createAccount(userForm.email, userForm.password, userForm.firstname, userForm.lastname, userForm.phone);
-    navigateTo('/')
+    try {
+      await createAccount(userForm.email, userForm.password, userForm.firstname, userForm.lastname, userForm.phone).then(() => {
+        navigateTo('/')
+      });
+    } catch (error) {
+      console.log('Error 🚨: ', error);
+    }
     isActive.value = false
   };
 </script>
