@@ -1,0 +1,17 @@
+{
+  "functions": { "source": ".output/server" },
+  "hosting": [
+    {
+      "site": "yesmkt-demo",
+      "public": ".output/public",
+      "cleanUrls": true,
+      "rewrites": [{ "source": "**", "function": "server" }]
+    }
+  ],
+  "emulators": {
+    "hosting": {
+      "host": "localhost",
+      "port": "4000"
+    }
+  }
+}

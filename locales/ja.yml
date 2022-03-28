@@ -1,0 +1,66 @@
+components:
+  language_switcher:
+    change_language: 言語を変えてください
+  theme_switcher:
+    theme: テーマ
+    change_theme: テーマを変えてください
+table:
+  header:
+    active: アクティブ
+    frontpage: 表紙
+    stock: ストック
+    name: 名前
+    price: 価格
+    vatRate: VAT率
+    EAN: EAN
+    programs: プログラム
+    category: カテゴリ
+    brand: ブランド
+    info: 情報
+    seller: 売り手
+    sellerCode: 売り手 Code
+    sellerUrl: 売り手 Url
+    deliveryPeriod: 納期
+    image: 画像
+    variablePrice: 変動価格
+    card: カード
+    rechargeable: 充電式
+    minCardValidity: Min Card 有効
+    fee: 手数料
+    priceMin: Price Min
+    priceMax: Price Max
+    priceMultiples: Price Multiples
+    points: ポイント
+    billable: 請求可能
+    date: 日にち
+pages:
+  index:
+    title: nuxt 3,素晴らしい,スターター
+  blank:
+    nav: 空白
+    title: 空白ページ
+    just_blank_page_with_title: 空白ページのみにタイトル
+  test:
+    nav: テスト
+    title: テスト
+    counter: カウンター
+    increment: 増加
+    decrement: 減少
+    reset: リセット
+    identity: 識別
+    full_name: 全名
+  about:
+    nav: このサイトについて
+    title: このサイトについて
+  dashboard:
+    nav: ダッシュボード
+    title: ダッシュボード
+    index:
+      nav: ホーム
+      title: ホーム
+banners:
+  welcome: こんにちは, %{app_name} へようこそ!
+others:
+  learn_more: 続きを読む
+home: 家
+hello: こんにちは

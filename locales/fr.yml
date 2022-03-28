@@ -1,0 +1,66 @@
+components:
+  language_switcher:
+    change_language: changer de langue
+  theme_switcher:
+    theme: thème
+    change_theme: changer thème
+table:
+  header:
+    active: Actif
+    frontpage: Page de garde
+    stock: Stocker
+    name: Nom
+    price: Prix
+    vatRate: Taux de TVA
+    EAN: EAN
+    programs: Programs
+    category: Catégorie
+    brand: Brand
+    info: Info
+    seller: Vendeur
+    sellerCode: Vendeur Code
+    sellerUrl: Vendeur Url
+    deliveryPeriod: Délai de livraison
+    image: Image
+    variablePrice: Prix variable
+    card: Card
+    rechargeable: Rechargeable
+    minCardValidity: Min Card Validity
+    fee: Frais
+    priceMin: Price Min
+    priceMax: Price Max
+    priceMultiples: Multiples de prix
+    points: Points
+    billable: Facturable
+    date: Date
+pages:
+  index:
+    title: nuxt 3,impressionnante,starter
+  blank:
+    nav: blanche
+    title: page blanche
+    just_blank_page_with_title: just blank page with title
+  test:
+    nav: test
+    title: testing
+    counter: contrer
+    increment: incrément
+    decrement: décrémenter
+    reset: reset
+    identity: identity
+    full_name: fullName
+  about:
+    nav: sur
+    title: sur
+  dashboard:
+    nav: tableau de bord
+    title: tableau de bord
+    index:
+      nav: domicile
+      title: domicile
+banners:
+  welcome: bonjour, bienvenue à %{app_name}!
+others:
+  learn_more: apprendre encore plus
+home: domicile
+hello: Bonjour
