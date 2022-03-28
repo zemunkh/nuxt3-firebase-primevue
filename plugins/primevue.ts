@@ -16,6 +16,7 @@ import Menubar from "primevue/menubar";
 import Sidebar from "primevue/sidebar";
 import PanelMenu from "primevue/panelmenu";
 import Fieldset from "primevue/fieldset";
+import InlineMessage from 'primevue/inlinemessage';
 
 export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.use(PrimeVue, {ripple: true});
@@ -35,5 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component("Sidebar", Sidebar);
     nuxtApp.vueApp.component("PanelMenu", PanelMenu);
     nuxtApp.vueApp.component("Fieldset", Fieldset);
+    nuxtApp.vueApp.component("InlineMessage", InlineMessage);
+
     //other components that you need
 });
