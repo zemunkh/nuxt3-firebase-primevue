@@ -5,7 +5,7 @@
         <a href="/">
           <img
             alt="logo"
-            src="~/assets/images/yes_logo.png"
+            src="~/assets/images/profile.png"
             height="40"
             class="me-5"
           />
