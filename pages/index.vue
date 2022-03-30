@@ -18,7 +18,7 @@
     <h1 class="text-center">Home 🏠</h1>
 
     <div>
-      <Fieldset legend="Profile" :toggleable="true">
+      <Fieldset v-if="authStore.profile" legend="Profile" :toggleable="true">
         <InlineMessage severity="info">ID: {{ authStore.profile.userId }}</InlineMessage><br>
         <InlineMessage severity="info">Firstname: {{ authStore.profile.firstname }}</InlineMessage><br>
         <InlineMessage severity="info">Lastname: {{ authStore.profile.lastname }}</InlineMessage><br>
