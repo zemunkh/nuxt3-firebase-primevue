@@ -2,7 +2,6 @@ import {
   getFirestore,
   collection,
   doc,
-  addDoc,
   onSnapshot,
   getDoc,
   getDocs,
@@ -15,11 +14,12 @@ import {
   startAfter
 } from 'firebase/firestore';
 
-import firebaseApp from './firebaseInit';
+// import firebaseApp from './firebaseInit';
 import { useStore } from '~/store/store'
 
 export const useFirestore = () => {
-  const db = getFirestore(firebaseApp);
+  const { $firebaseApp } = useNuxtApp()
+  const db = getFirestore($firebaseApp);
   const store = useStore();
   console.log('On firestore Nick: ', store.nick);
 

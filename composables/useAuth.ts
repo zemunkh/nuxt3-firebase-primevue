@@ -11,11 +11,12 @@ import {
   sendPasswordResetEmail
 } from 'firebase/auth';
 
-import firebaseApp from './firebaseInit';
+// import firebaseApp from './firebaseInit';
 import { useFirestore } from './useFirestore';
 export const useAuth = () => {
-  const auth = getAuth(firebaseApp);
-  const { db, set, get } = useFirestore();
+  const { $firebaseApp } = useNuxtApp()
+  const auth = getAuth($firebaseApp);
+  const { set, get } = useFirestore();
 
   const fbAuthStateListener = async (callback) => {
     onAuthStateChanged(auth, async () => {
