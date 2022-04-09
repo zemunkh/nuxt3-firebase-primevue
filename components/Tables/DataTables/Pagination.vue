@@ -107,7 +107,6 @@
 <script setup>
   import { useStore } from "~/store/store";
   import Loader from "~~/components/Tools/Loader.vue";
-  import { useFirestore } from "~~/composables/useFirestore";
   // import {FilterMatchMode,FilterOperator} from 'primevue/api';
 
   const props = defineProps({

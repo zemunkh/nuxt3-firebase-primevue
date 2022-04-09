@@ -32,7 +32,7 @@ export const useStore = defineStore('global', {
         console.log('Length ✅: ', data.length);
         return this[collection]
       } catch (e) {
-        this.posts = []
+        this[collection] = []
         this.error = e;
         return false;
       }
